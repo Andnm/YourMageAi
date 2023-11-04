@@ -36,11 +36,7 @@ const Auth = (props) => {
                 navigate('/home');
             });
     }
-
-    useEffect(() => {
-        console.log('asd', process.env.REACT_APP_GOOGLE_CLIENT_ID)
-    }, []);
-
+    
     return (
         <Modal dialogClassName="auth-modal" show={open} onHide={onClose} centered >
 
