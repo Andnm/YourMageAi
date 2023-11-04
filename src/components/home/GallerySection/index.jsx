@@ -37,11 +37,11 @@ const GallerySection = () => {
     return text;
   }
 
-  const toggleLike = (sectionIndex, itemIndex) => {
-    const updatedList = [...listCardRecentCreation];
-    updatedList[sectionIndex].list[itemIndex].isLiked = !updatedList[sectionIndex].list[itemIndex].isLiked; // Đảo ngược giá trị isLiked
-    setListCardRecentCreation(updatedList);
-  };
+  // const toggleLike = (sectionIndex, itemIndex) => {
+  //   const updatedList = [...listCardRecentCreation];
+  //   updatedList[sectionIndex].list[itemIndex].isLiked = !updatedList[sectionIndex].list[itemIndex].isLiked; // Đảo ngược giá trị isLiked
+  //   setListCardRecentCreation(updatedList);
+  // };
 
   useEffect(() => {
     dispatch(getAllImageGeneral()).then((result) => {
@@ -231,7 +231,9 @@ const GallerySection = () => {
                             <div className='like-div'>
                               <p>{item.like}</p>
 
-                              <div onClick={() => toggleLike(indexSection, indexItem)}>
+                              <div
+                                // onClick={() => toggleLike(indexSection, indexItem)}
+                              >
                                 {item.isLiked ? <FcLike /> : <FcLikePlaceholder />}
                               </div>
                             </div>
