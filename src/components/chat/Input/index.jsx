@@ -9,7 +9,7 @@ import { createMessage } from '../../../store/messageSlice';
 import { getUserFromLocalStorage } from '../../../store/userSlice';
 // import { sendMsgToOpenAI } from '../../../utils/openai';
 
-const socket = io(`${process.env.REACT_APP_URL}`);
+const socket = io(`${process.env.REACT_APP_API_URL}`);
 
 const Input = () => {
   const [valueText, setValueText] = useState("");

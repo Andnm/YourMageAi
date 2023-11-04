@@ -8,7 +8,7 @@ import logo_avatar from '../../../assets/images/leosplash-1.png'
 
 import io from 'socket.io-client';
 import { getFirstLetter } from '../../../utils';
-const socket = io(`${process.env.REACT_APP_URL}`);
+const socket = io(`${process.env.REACT_APP_API_URL}`);
 
 const Messages = () => {
 

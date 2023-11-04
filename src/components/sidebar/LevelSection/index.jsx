@@ -4,7 +4,7 @@ import { getUserFromLocalStorage } from '../../../store/userSlice';
 import './style.scss'
 import { NavLink } from 'react-router-dom';
 import io from 'socket.io-client';
-const socket = io(`${process.env.REACT_APP_URL}`);
+const socket = io(`${process.env.REACT_APP_API_URL}`);
 
 const LevelSection = () => {
 
@@ -15,10 +15,10 @@ const LevelSection = () => {
 
     useEffect(() => {
         setUser(getUserFromLocalStorage());
-        setTokenCount(getUserFromLocalStorage().tokens)
+        setTokenCount(getUserFromLocalStorage()?.tokens)
 
         socket.on('updateTokens', (data) => {
-            setTokenCount(data.tokens)
+            setTokenCount(data?.tokens)
         })
 
     }, [socket]);

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-const LINK_API = `${process.env.REACT_APP_URL}`;
+const LINK_API = `${process.env.REACT_APP_API_URL}`;
 
 //xử lý ở local
 const saveUserToLocalStorage = (user) => {

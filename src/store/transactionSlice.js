@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const LINK_API = `${process.env.REACT_APP_URL}`;
+const LINK_API = `${process.env.REACT_APP_API_URL}`;
 
 const getTokenFromLocalStorage = () => {
   const token = JSON.parse(localStorage.getItem("token")) || null;

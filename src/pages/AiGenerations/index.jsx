@@ -7,7 +7,7 @@ import { updateUserFromLocalStorage, upgradeToken, addHistoryImageGenerated } fr
 import { useDispatch, useSelector } from 'react-redux'
 
 import io from 'socket.io-client';
-const socket = io(`${process.env.REACT_APP_URL}`);
+const socket = io(`${process.env.REACT_APP_API_URL}`);
 
 const AiGenerations = () => {
   const [randomImages, setRandomImages] = useState([]);
