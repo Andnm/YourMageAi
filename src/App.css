@@ -1,0 +1,245 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+:root {
+  --bricks-color-red: #fa5560;
+  --bricks-color-purple: #b14bf4;
+  --bricks-color-blue: #4d91ff;
+  --bricks-color-black: #000000;
+  --bricks-color-white: #ffffff;
+  --bricks-color-gray: #dddddd;
+  --bricks-color-light-gray: #9094a6;
+  --bricks-color-gradient-blue: linear-gradient(
+    81.02deg,
+    var(--bricks-color-purple) 25.52%,
+    var(--bricks-color-blue) 64.8%
+  );
+  --bricks-color-gradient-red-blue: linear-gradient(
+    81.02deg,
+    var(--bricks-color-red) -23.47%,
+    var(--bricks-color-purple) 45.52%,
+    var(--bricks-color-blue) 114.8%
+  );
+
+  /* hmmmmm */
+  --leonardo-ai-fontSizes-3xs: 0.45rem;
+  --leonardo-ai-fontSizes-2xs: 0.625rem;
+  --leonardo-ai-fontSizes-xs: calc(1rem * 0.75);
+  --leonardo-ai-fontSizes-sm: calc(1rem * 0.875);
+  --leonardo-ai-fontSizes-md: calc(1rem * 0.9375);
+  --leonardo-ai-fontSizes-lg: calc(1rem * 1.125);
+  --leonardo-ai-fontSizes-xl: calc(1rem * 1.25);
+  --leonardo-ai-fontSizes-2xl: calc(1rem * 1.5);
+  --leonardo-ai-fontSizes-3xl: calc(1rem * 1.875);
+  --leonardo-ai-fontSizes-4xl: calc(1rem * 2.25);
+  --leonardo-ai-fontSizes-5xl: 3rem;
+  --leonardo-ai-fontSizes-6xl: 3.75rem;
+  --leonardo-ai-fontSizes-7xl: 4.5rem;
+  --leonardo-ai-fontSizes-8xl: 6rem;
+  --leonardo-ai-fontSizes-9xl: 8rem;
+  --leonardo-ai-fontWeights-hairline: 100;
+  --leonardo-ai-fontWeights-thin: 200;
+  --leonardo-ai-fontWeights-light: 300;
+  --leonardo-ai-fontWeights-normal: 400;
+  --leonardo-ai-fontWeights-medium: 500;
+  --leonardo-ai-fontWeights-semibold: 600;
+  --leonardo-ai-fontWeights-bold: 700;
+  --leonardo-ai-fontWeights-extrabold: 800;
+  --leonardo-ai-fontWeights-black: 900;
+  --leonardo-ai-letterSpacings-tighter: -0.05em;
+  --leonardo-ai-letterSpacings-tight: -0.025em;
+  --leonardo-ai-letterSpacings-normal: 0;
+  --leonardo-ai-letterSpacings-wide: 0.025em;
+  --leonardo-ai-letterSpacings-wider: 0.05em;
+  --leonardo-ai-letterSpacings-widest: 0.1em;
+  --leonardo-ai-lineHeights-3: 0.75rem;
+  --leonardo-ai-lineHeights-4: 1rem;
+  --leonardo-ai-lineHeights-5: 1.25rem;
+  --leonardo-ai-lineHeights-6: 1.5rem;
+  --leonardo-ai-lineHeights-7: 1.75rem;
+  --leonardo-ai-lineHeights-8: 2rem;
+  --leonardo-ai-lineHeights-9: 2.25rem;
+  --leonardo-ai-lineHeights-10: 2.5rem;
+  --leonardo-ai-lineHeights-normal: normal;
+  --leonardo-ai-lineHeights-none: 1;
+  --leonardo-ai-lineHeights-shorter: 1.25;
+  --leonardo-ai-lineHeights-short: 1.375;
+  --leonardo-ai-lineHeights-base: 1.5;
+  --leonardo-ai-lineHeights-tall: 1.625;
+  --leonardo-ai-lineHeights-taller: 2;
+  --leonardo-ai-radii-none: 0;
+  --leonardo-ai-radii-sm: calc(1rem * 0.125);
+  --leonardo-ai-radii-base: calc(1rem * 0.25);
+  --leonardo-ai-radii-md: calc(1rem * 0.375);
+  --leonardo-ai-radii-lg: calc(1rem * 0.5);
+  --leonardo-ai-radii-xl: calc(1rem * 0.75);
+  --leonardo-ai-radii-2xl: calc(1rem * 1);
+  --leonardo-ai-radii-3xl: calc(1rem * 1.5);
+  --leonardo-ai-radii-full: calc(1rem * 999);
+  --leonardo-ai-space-1: calc(1rem * 0.25);
+  --leonardo-ai-space-2: calc(1rem * 0.5);
+  --leonardo-ai-space-3: calc(1rem * 0.75);
+  --leonardo-ai-space-4: 1rem;
+  --leonardo-ai-space-5: calc(1rem * 1.25);
+  --leonardo-ai-space-6: calc(1rem * 1.5);
+  --leonardo-ai-space-7: calc(1rem * 1.75);
+  --leonardo-ai-space-8: calc(1rem * 2);
+  --leonardo-ai-space-9: calc(1rem * 2.25);
+  --leonardo-ai-space-10: calc(1rem * 2.5);
+  --leonardo-ai-space-12: calc(1rem * 3);
+  --leonardo-ai-space-14: calc(1rem * 3.5);
+  --leonardo-ai-space-16: calc(1rem * 4);
+  --leonardo-ai-space-20: calc(1rem * 5);
+  --leonardo-ai-space-24: calc(1rem * 6);
+  --leonardo-ai-space-28: calc(1rem * 7);
+  --leonardo-ai-space-32: calc(1rem * 8);
+  --leonardo-ai-space-36: calc(1rem * 9);
+  --leonardo-ai-space-40: calc(1rem * 10);
+  --leonardo-ai-space-44: calc(1rem * 11);
+  --leonardo-ai-space-48: calc(1rem * 12);
+  --leonardo-ai-space-52: calc(1rem * 13);
+  --leonardo-ai-space-56: calc(1rem * 14);
+  --leonardo-ai-space-60: calc(1rem * 15);
+  --leonardo-ai-space-64: calc(1rem * 16);
+  --leonardo-ai-space-72: calc(1rem * 18);
+  --leonardo-ai-space-80: calc(1rem * 20);
+  --leonardo-ai-space-96: calc(1rem * 24);
+  --leonardo-ai-space-px: calc(1rem * 0.063);
+  --leonardo-ai-space-0-5: calc(1rem * 0.125);
+  --leonardo-ai-space-1-5: calc(1rem * 0.375);
+  --leonardo-ai-space-2-5: calc(1rem * 0.625);
+  --leonardo-ai-space-3-5: calc(1rem * 0.875);
+}
+
+.body {
+  font-family: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
+}
+
+p {
+  margin-bottom: 0px !important;
+}

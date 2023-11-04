@@ -1,0 +1,123 @@
+.toolkit-section {
+  padding: 3.5rem 0rem;
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    .title {
+      text-align: center;
+      color: var(--bricks-color-white);
+      font-size: clamp(1.5625rem, 0.8152rem + 2.9891vw, 2.25rem);
+      font-weight: bold;
+
+      span {
+        background: var(--bricks-color-gradient-red-blue);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      img {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 0.07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+      }
+    }
+
+    .content {
+      margin-top: 30px !important;
+
+      .tab-menu {
+        padding: 0px 40px;
+        align-items: flex-start;
+        display: flex;
+        width: 100%;
+        border-bottom: 1px solid #202125;
+
+        .tab-menu-items {
+          padding-top: 11.5px;
+          padding-right: 8px;
+          padding-bottom: 11.5px;
+          padding-left: 8px;
+          font-weight: 500;
+          font-size: 16px;
+          color: var(--bricks-color-light-gray);
+          margin-right: 36px;
+        }
+
+        .active {
+          color: var(--bricks-color-white);
+          border-bottom: 2px solid;
+          border-image-source: var(--bricks-color-gradient-red-blue);
+          border-image-slice: 1;
+        }
+
+        .tab-menu-items:hover {
+          cursor: pointer;
+          color: var(--bricks-color-purple);
+        }
+      }
+
+      .tab-content {
+        padding: 0px 40px;
+        margin-top: 30px;
+
+        .tab-content-items {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          &__left {
+            width: 495px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .category-name {
+              background: var(--bricks-color-gradient-red-blue);
+              -webkit-background-clip: text;
+              color: transparent;
+            }
+
+            h1 {
+              margin-bottom: 14px;
+              font-size: 24px;
+              font-weight: 500;
+              color: var(--bricks-color-white);
+            }
+
+            .content {
+              p {
+                color: var(--bricks-color-light-gray);
+                font-weight: 400;
+                line-height: 23px;
+                font-size: 18px
+              }
+
+              p:first-child {
+                margin-bottom: 15px !important;
+              }
+            }
+          }
+
+          &__right {
+            width: 495px;
+            height: 340px;
+
+            video {
+              width: 495px;
+              height: 340px;
+              border-radius: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

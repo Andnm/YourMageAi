@@ -1,0 +1,14 @@
+.loader-spin {
+    width: 10px;
+    height: 10px;
+    border: 0.4em solid rgb(84, 84, 84);
+    border-left-color: #a23ffc;
+    border-radius: 45%;
+    animation: spin 0.7s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }

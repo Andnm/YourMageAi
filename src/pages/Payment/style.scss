@@ -1,0 +1,191 @@
+.payment {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .payment_left {
+        position: relative;
+        width: 467px;
+        height: 100vh;
+        padding: 50px 0;
+        padding-right: 20px;
+
+        .back_button {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            transform: translateX(-20px);
+
+            img {
+                width: 25px;
+                height: 25px;
+                margin: 0 5px;
+                border-radius: 15px;
+                opacity: 1;
+                transition: 0.3s;
+            }
+
+            .text {
+                opacity: 0;
+                transition: 0.3s;
+                transform: translateX(-25px);
+                background-color: white;
+                padding: 5px 0;
+            }
+
+            svg {
+                transition: 0.3s;
+            }
+
+        }
+
+        .back_button:hover {
+            cursor: pointer;
+
+            img {
+                opacity: 0;
+                transition: 0.3s;
+            }
+
+            .text {
+                opacity: 1;
+                transition: 0.3s;
+                transform: translateX(-30px);
+            }
+
+            svg {
+                transition: 0.3s;
+                transform: translateX(-2px);
+                fill: black;
+            }
+
+        }
+
+        .information {
+            width: 100%;
+
+            .name {
+                color: rgba(26, 26, 26, 0.6);
+                font-weight: 600;
+                margin-top: 56px;
+            }
+
+            .price {
+                display: flex;
+                align-items: center;
+                font-size: 40px;
+                font-weight: 600;
+
+                .type {
+                    width: 30px;
+                    color: rgba(26, 26, 26, 0.6);
+                    font-size: 15px;
+                    font-weight: 600;
+                    margin: 0 10px;
+                }
+            }
+        }
+
+        .apprentice {
+            width: 90%;
+            margin: 20px 0;
+
+            .billed {
+                font-size: 12px;
+                color: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .tax {
+            color: rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+        }
+
+        .flex {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .line {
+            width: 90%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .payment_right {
+        width: 467px;
+        padding: 50px 0;
+        padding-left: 60px;
+        box-shadow: -2px -5px 3px 0 rgba(0, 0, 0, 0.1);
+        position: relative;
+        margin-bottom: 100px;
+
+        .title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .email {
+            display: flex;
+            padding: 10px 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+            background-color: #f7f7f7;
+            justify-content: space-between;
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+            color: rgba(0, 0, 0, 0.5);
+
+            .left {
+                font-weight: 500;
+            }
+
+            .right {
+                margin-right: 20px;
+            }
+        }
+
+        .input {
+
+            .input_title {
+                color: rgba(0, 0, 0, 0.5);
+                font-weight: 500;
+                margin: 10px 0;
+            }
+
+            .input_feild {
+                width: 100%;
+                padding: 5px 20px;
+                border-radius: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .qr_payment {
+            width: 100%;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .btn-checkout {
+            position: absolute;
+            right: 0;
+        }
+    }
+}

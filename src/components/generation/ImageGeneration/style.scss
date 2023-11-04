@@ -1,0 +1,110 @@
+.image-generation {
+  margin-top: 20px;
+
+  .chakra-tabs__tablist {
+    display: flex;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-color: inherit;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: var(--leonardo-ai-space-4);
+
+    .chakra-tabs__tab {
+      color: rgb(254, 254, 254);
+      background-color: transparent;
+      margin-right: var(--leonardo-ai-space-4);
+      margin-left: var(--leonardo-ai-space-4);
+      border: 2px solid black;
+    }
+
+    .active {
+      border-image-source: var(--bricks-color-gradient-red-blue);
+      border-image-slice: 1;
+      border-bottom-color: rgb(114, 88, 242);
+      border-top: 1px !important;
+      border-left: 1px !important;
+      border-right: 1px !important;
+    }
+  }
+
+  .generation-image-main {
+    grid-template-columns: repeat(auto-fit, minmax(calc(24rem), 1fr));
+    display: grid;
+    grid-gap: 1rem;
+    padding: 35px;
+
+    .chakra-aspect-ratio {
+      position: relative;
+
+      .chakra-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        cursor: pointer;
+
+        .chakra-card__body {
+          border-radius: var(--leonardo-ai-radii-lg);
+          width: 100%;
+          height: 100%;
+
+          img {
+            border: 0px solid transparent;
+            object-fit: cover;
+            border-radius: var(--leonardo-ai-radii-lg);
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.1s ease 0s;
+            min-width: 0px;
+          }
+        }
+      }
+    }
+
+    .chakra-aspect-ratio:hover {
+      filter: brightness(0.5);
+    }
+  }
+
+  .generation-image-header {
+    width: 100%;
+    padding: 0px 35px;
+    
+    .text-header {
+      font-weight: 500;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .date-container {
+      position: relative;
+      top: -30px;
+      z-index: 1;
+      color: rgb(73, 78, 91);
+
+      p {
+        display: inline;
+        background-color: black;
+        padding: 10px;
+      }
+    }
+
+    .chakra-divider {
+      opacity: 1;
+      border-width: 0px 0px 2px;
+      border-image: initial;
+      border-color: inherit;
+      border-style: solid;
+      width: 100%;
+      background: rgba(65, 60, 60, 0.16);
+    }
+  }
+
+  .prompt-name-div {
+    padding-left: 35px;
+    p {
+      color: white;
+      font-size: 20px;
+    }
+  }
+}

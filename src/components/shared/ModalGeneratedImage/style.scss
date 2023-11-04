@@ -1,0 +1,54 @@
+.image-detail-modal__left {
+  .option-modal-generated-image {
+    margin-top: 10px;
+    display: flex;
+    gap: 1rem;
+
+    .chakra-button {
+      background-color: rgb(23, 23, 23);
+      border-radius: calc(0.5rem);
+      color: white;
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border: 1px solid rgb(38, 39, 44);
+      padding: 5px 10px;
+    }
+
+    .chakra-button:hover {
+      background-color: rgb(96, 94, 94);
+    }
+  }
+}
+
+.detail-section-input {
+  width: 100%;
+
+  textarea {
+    width: 100%;
+    background-color: black;
+    border-color: gray;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+
+.ask-confirm-share {
+  border-radius: calc(0.5rem);
+  color: white;
+  border: 1px solid rgb(38, 39, 44);
+  padding: 5px 10px;
+
+  .brighten {
+    filter: brightness(0.5);
+  }
+
+  .brighten:hover {
+    filter: brightness(2);
+  }
+}

@@ -1,0 +1,60 @@
+.profile-page {
+  padding: 2.5rem;
+
+  .chakra-heading {
+    font-size: calc(1.35rem);
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+  }
+
+  .main {
+    .chakra-tabs__tablist {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      opacity: 1;
+      border-width: 0px 0px 2px;
+      border-image: initial;
+      border-color: inherit;
+      border-style: solid;
+      width: 100%;
+
+      .chakra-tabs__tab {
+        padding: 0;
+        background-color: rgb(0, 0, 0);
+        border: 2px solid black;
+        color: rgb(151, 151, 151);
+      }
+
+      .chakra-tabs__tab:nth-child(2) {
+        display: flex;
+        cursor: no-drop;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          display: flex;
+          background: var(--bricks-color-gradient-red-blue);
+          border-radius: var(--leonardo-ai-radii-md);
+          color: white;
+          font-size: calc(0.6192rem);
+          padding-inline-start: var(--leonardo-ai-space-1);
+          padding-inline-end: var(--leonardo-ai-space-1);
+          padding-top: calc(0.05625rem);
+          padding-bottom: calc(0.05625rem);
+          margin-left: var(--leonardo-ai-space-2);
+          line-height: calc(0.928125rem);
+        }
+      }
+
+      .active {
+        border-image-source: var(--bricks-color-gradient-red-blue);
+        border-image-slice: 2;
+        border-top: 2px !important;
+        border-left: 2px !important;
+        border-right: 2px !important;
+        color: rgb(254, 254, 254);
+      }
+    }
+  }
+}

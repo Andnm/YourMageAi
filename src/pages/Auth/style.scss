@@ -1,0 +1,345 @@
+.auth-modal {
+  width: 90% !important;
+  --bs-modal-width: none;
+  position: relative;
+
+  .btn-close-modal {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: white;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  .modal-content {
+    overflow: hidden;
+    border-radius: 20px;
+
+    .authentication-container {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      overflow: hidden;
+      min-height: 90vh;
+
+      &__left {
+        min-width: calc(23.625rem);
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(23, 23, 23);
+        padding: 15px 45px;
+        align-items: center;
+
+        .logo {
+          width: 50px;
+
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 50px;
+          }
+        }
+
+        .main {
+          margin-bottom: 15px;
+
+          .main__top {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            .button-login-gg {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            p {
+              color: var(--bricks-color-white);
+              font-size: 15px;
+              font-weight: 400;
+              line-height: 1;
+            }
+
+            .chakra-button {
+              height: 40px;
+              width: 272px;
+              background-color: var(--bricks-color-white);
+              border-radius: 5px;
+              border: none;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 3px;
+              color: var(--bricks-color-black);
+              padding: 0px 10px;
+              font-size: 15px;
+
+              img {
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+              }
+            }
+
+            .break-line {
+              position: relative;
+              width: 100%;
+              // margin: 15px 0px;
+
+              hr {
+                opacity: 0.6;
+                border-width: 0px 0px 3px;
+                border-image: initial;
+                border-style: solid;
+                width: 100%;
+                border-color: rgb(38, 39, 44);
+              }
+
+              .text {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: rgb(23, 23, 23);
+                border: 3px solid rgb(38, 39, 44);
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+
+                p {
+                  font-size: 12px;
+                  line-height: 1;
+                }
+              }
+            }
+          }
+
+          .main__bottom {
+            margin-top: 15px;
+
+            .form-login {
+              position: relative;
+              width: 100%;
+
+              form {
+                .notification {
+                  padding: 0.5rem;
+                  border-radius: 5px;
+                  text-align: center;
+                  margin-bottom: 10px;
+
+                  p {
+                    font-size: 12px;
+                  }
+                }
+
+                .success {
+                  border: 1px solid rgb(104, 211, 145);
+                  color: rgb(104, 211, 145);
+                }
+
+                .error {
+                  border: 1px solid rgb(214, 73, 88);
+                  color: rgb(214, 73, 88);
+                }
+
+                .content {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  width: 100%;
+                  gap: 1rem;
+
+                  .chakra-form-control {
+                    width: 100%;
+                    position: relative;
+
+                    label {
+                      font-size: 15px;
+                      color: var(--bricks-color-white);
+                    }
+
+                    input {
+                      margin-top: 5px;
+                      width: 100%;
+                      min-width: 0px;
+                      position: relative;
+                      color: rgb(189, 189, 189);
+                      background: rgb(17, 17, 17);
+                      border: 1px solid rgb(17, 17, 17);
+                      padding: 10px 10px;
+                      font-size: 13px;
+                      border-radius: 10px;
+                    }
+
+                    input:focus {
+                      border-color: rgb(107, 102, 255) !important;
+                    }
+
+                    input::after {
+                      border-color: rgb(107, 102, 255) !important;
+                    }
+                  }
+
+                  .chakra-text {
+                    font-size: 10px;
+                    cursor: pointer;
+                    color: rgb(107, 102, 255);
+                  }
+
+                  .chakra-button-click {
+                    background-image: var(--bricks-color-gradient-red-blue);
+                    color: var(--bricks-color-white);
+                    width: 100%;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px 0px;
+                    font-size: 12px;
+                    transition: filter 0.2s, box-shadow 0.2s;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 38px;
+                  }
+
+                  .chakra-button-click:hover {
+                    filter: brightness(1.2);
+                    box-shadow: 0px 1.5px 4px rgba(255, 255, 255, 0.5);
+                  }
+
+                  .button-loading {
+                    background-image: var(--bricks-color-gradient-red-blue);
+                    color: var(--bricks-color-white);
+                    width: 100%;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px 0px;
+                    font-size: 12px;
+                    transition: filter 0.2s, box-shadow 0.2s;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 38px;
+                    filter: brightness(0.5);
+                    cursor: wait !important;
+                  }
+
+                  .button-no-action {
+                    filter: brightness(0.5);
+                    background-image: var(--bricks-color-black);
+                    color: var(--bricks-color-white);
+                    width: 100%;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px 0px;
+                    font-size: 12px;
+                    transition: filter 0.2s, box-shadow 0.2s;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 38px;
+                    cursor: no-drop !important;
+                  }                
+                }
+              }
+            }
+
+            .signup-container {
+              text-align: center;
+              margin: 10px 0px;
+
+              p {
+                color: var(--bricks-color-white);
+                font-size: 12px;
+
+                span {
+                  margin-left: 5px;
+                  color: rgb(107, 102, 255);
+                  cursor: pointer;
+                }
+
+                span:hover {
+                  filter: brightness(1.2);
+                }
+              }
+            }
+
+            .get-app {
+              padding-top: 15px;
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              align-items: center;
+              gap: 1rem;
+
+              p {
+                color: var(--bricks-color-white);
+              }
+
+              img {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .footer {
+          display: flex;
+          height: 100%;
+          align-items: end;
+          justify-content: space-evenly;
+          gap: 2rem;
+
+          .items {
+            p {
+              font-size: 10px;
+              color: var(--bricks-color-light-gray);
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+      &__right {
+        display: flex;
+        width: 100%;
+        // background-image: url(https://app.leonardo.ai/img/login-hero-images/NeoRenaissanceMan.webp);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        .overlay {
+          border-radius: 48px;
+          background: rgba(0, 0, 0, 0.9);
+          padding: 7px 10px;
+          margin: 5px;
+          color: var(--bricks-color-white);
+
+          span {
+            background: var(--bricks-color-gradient-red-blue);
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+      }
+    }
+  }
+}

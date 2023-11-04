@@ -1,0 +1,22 @@
+.home-page {
+ 
+  .recent-creations {
+    margin-inline-start: var(--leonardo-ai-space-8);
+    margin-inline-end: var(--leonardo-ai-space-8);
+    margin-top: var(--leonardo-ai-space-8);
+
+    .chakra-heading {
+      font-size: calc(1.35rem);
+      font-weight: 500;
+      color: rgb(255, 255, 255);
+      line-height: 1.2;
+
+      span {
+        background: var(--bricks-color-gradient-red-blue);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+
+}

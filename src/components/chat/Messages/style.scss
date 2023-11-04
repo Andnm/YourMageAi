@@ -1,0 +1,120 @@
+.messages {
+  background-color: #ddddf7;
+  padding: 20px;
+  height: calc(100% - 50px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  .message {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .messageInfo {
+      display: flex;
+      flex-direction: column;
+      color: gray;
+      font-weight: 300;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .logo-owner {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid gray;
+      }
+
+      .avatar-chat-owner {
+        .chakra-link-item {
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          border-radius: var(--leonardo-ai-radii-md);
+          color: rgb(167, 178, 193);
+          cursor: pointer;
+
+          svg {
+            vertical-align: middle;
+            fill: rgb(167, 178, 193);
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            line-height: 1em;
+            flex-shrink: 0;
+            color: currentcolor;
+            margin-right: var(--leonardo-ai-space-4);
+            font-size: calc(1.2375rem);
+          }
+
+          .chakra-stack {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            .chakra-avatar {
+              border-radius: var(--leonardo-ai-radii-full);
+              display: inline-flex;
+              -webkit-box-align: center;
+              align-items: center;
+              -webkit-box-pack: center;
+              justify-content: center;
+              text-align: center;
+              text-transform: uppercase;
+              font-weight: var(--leonardo-ai-fontWeights-medium);
+              position: relative;
+              flex-shrink: 0;
+              vertical-align: top;
+              width: calc(1rem * 2.5);
+              height: calc(1rem * 2.5);
+              font-size: calc(1.2rem);
+              color: white;
+              background: var(--bricks-color-gradient-red-blue);
+            }
+          }
+        }
+      }
+    }
+
+    .messageContent {
+      max-width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 0px 10px 10px 10px;
+        max-width: max-content;
+      }
+
+      img {
+        width: 300px;
+      }
+    }
+
+    &.owner {
+      flex-direction: row-reverse;
+
+      .messageContent {
+        align-items: flex-end;
+
+        p {
+          background-color: #8da4f1;
+          color: white;
+          border-radius: 10px 0px 10px 10px;
+        }
+      }
+    }
+  }
+}

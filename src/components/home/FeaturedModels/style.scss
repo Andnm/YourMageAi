@@ -1,0 +1,108 @@
+.featured-models {
+  margin-inline-start: var(--leonardo-ai-space-8);
+  margin-inline-end: var(--leonardo-ai-space-8);
+
+  &__header {
+    margin-top: var(--leonardo-ai-space-10);
+    margin-bottom: var(--leonardo-ai-space-4);
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+
+    .title {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      gap: var(--leonardo-ai-space-4);
+
+      .chakra-heading {
+        font-size: calc(1.35rem);
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+        line-height: 1.2;
+        white-space: nowrap;
+
+        span {
+          background: var(--bricks-color-gradient-red-blue);
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
+
+      .chakra-button {
+        display: inline-flex;
+        appearance: none;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        user-select: none;
+        position: relative;
+        white-space: nowrap;
+        vertical-align: middle;
+        outline: transparent solid 2px;
+        outline-offset: 2px;
+        line-height: calc(1.5rem);
+        font-weight: var(--leonardo-ai-fontWeights-semibold);
+        transition-property: var(--leonardo-ai-transition-property-common);
+        transition-duration: var(--leonardo-ai-transition-duration-normal);
+        font-size: calc(0.875rem);
+        padding-inline-start: var(--leonardo-ai-space-12);
+        padding-inline-end: var(--leonardo-ai-space-12);
+        background: rgb(0, 0, 0);
+        padding: 0px;
+        border-radius: var(--leonardo-ai-radii-full);
+        pointer-events: auto;
+        margin: 0px;
+        border: calc(0.0625rem) solid rgb(32, 33, 37);
+        width: calc(2.1375rem);
+        height: calc(2.1375rem);
+        min-width: auto;
+
+        svg {
+          width: calc(0.9rem);
+          height: calc(0.9rem);
+          display: inline-block;
+          line-height: 1em;
+          flex-shrink: 0;
+          color: currentcolor;
+          vertical-align: middle;
+          fill: none;
+        }
+      }
+    }
+
+    .arrow {
+      display: flex;
+      gap: var(--leonardo-ai-space-2);
+
+      .chakra-button {
+        content: "";
+        // position: absolute;
+        inset: calc(-0.1875rem);
+        margin: calc(-0.0625rem);
+        border: calc(0.3125rem) solid rgb(0, 0, 0);
+        border-radius: calc(999rem);
+      }
+    }
+  }
+
+  &__gallery {
+    .gallery-container {
+      width: calc(100vw - 20.025rem);
+      display: flex;
+      overflow: hidden;
+
+      .list {
+        display: flex;
+        gap: 2rem;
+        // overflow-x: scroll;
+        // scroll-snap-type: x mandatory;
+      }
+    }
+  }
+}

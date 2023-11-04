@@ -1,0 +1,12 @@
+.chat-with-ai {
+  padding: 50px;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  .chat-space {
+    flex: 2;
+    border-radius: 20px;
+  }
+}

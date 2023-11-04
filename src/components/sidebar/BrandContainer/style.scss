@@ -1,0 +1,51 @@
+.brand-container {
+  width: 100%;
+  height: auto;
+  padding-top: calc(1rem * 1.25);
+
+  .brand {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-inline: calc(1.0125rem);
+
+    .item-link {
+      cursor: pointer;
+      text-decoration: none;
+      outline-offset: 2px;
+      color: inherit;
+
+      .img-div {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        gap: calc(1rem * 0.375);
+
+        img {
+          width: calc(2.5875rem);
+          height: calc(2.5875rem);
+        }
+
+        p {
+          font-size: calc(1.0125rem);
+          font-weight: 500;
+          color: rgb(255, 255, 255);
+          letter-spacing: calc(0.018rem);
+
+          span {
+            background: var(--bricks-color-gradient-red-blue);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .back-button {
+      color: rgb(73, 78, 91);
+    }
+  }
+}

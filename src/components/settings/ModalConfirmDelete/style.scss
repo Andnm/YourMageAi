@@ -1,0 +1,73 @@
+.modal {
+  background: rgba(0, 0, 0, 0.8) !important;
+
+  .modal-delete {
+    .modal-content {
+      background: rgb(23, 23, 23);
+      padding-inline-start: var(--leonardo-ai-space-6);
+      padding-inline-end: var(--leonardo-ai-space-6);
+      padding-top: var(--leonardo-ai-space-2);
+      padding-bottom: var(--leonardo-ai-space-2);
+
+      .chakra-stack {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 10px;
+        gap: 1.25rem;
+
+        .icon-warning {
+        }
+
+        .chakra-heading {
+          color: white;
+        }
+
+        .chakra-text {
+            color: rgb(144, 148, 166);
+        }
+
+        .chakra-text-2 {
+            color: white;
+        }
+
+        .chakra-input__group {
+            input {
+                background-color: rgb(144, 148, 166);
+                border: none;
+                outline-offset: none;  
+                width: 300px;            
+            }
+        }
+
+        .button-section {
+            display: flex;
+            justify-content: center;
+
+            button {
+                min-width: 65%;
+                margin: 0px 20px;
+                padding: 10px 50px;
+                border: none;
+                border-radius: 7px;
+                color: white;
+                font-weight: 500;
+            }
+
+            .button-cancel {
+                background-color: rgb(38, 39, 44);
+            }
+
+            .button-delete {
+                background-color: rgb(228, 74, 53);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+      }
+    }
+  }
+}

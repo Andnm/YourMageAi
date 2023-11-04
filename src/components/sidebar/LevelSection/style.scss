@@ -1,0 +1,81 @@
+.level-section {
+    display: flex;
+    justify-content: center;
+    padding-inline-start: calc(1rem * 1.25);
+    padding-inline-end: calc(1rem * 1.25);
+
+    .token-section {
+      display: flex;
+      width: auto;
+      margin-top: 1rem !important;
+
+      .token-content {
+        display: flex;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        background-color: rgb(11, 15, 23);
+        border-radius: calc(1.6875rem);
+        width: fit-content;
+        gap: calc(1rem * 0.5);
+        padding-top: calc(1rem * 0.75);
+        padding-bottom: calc(1rem * 0.75);
+        padding-inline-start: calc(1rem * 1.25);
+        padding-inline-end: calc(1rem * 1.25);
+
+        .token-quantity {
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          flex-direction: row;
+          cursor: pointer;
+          gap: 3px;
+
+          .chakra-text {
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            font-size: 15px;
+          }
+
+          .icon {
+          }
+        }
+
+        .question-mark {
+          display: inline-block;
+          display: flex;
+          align-items: center;
+        }
+
+        .chakra-button {
+          display: inline-flex;
+          appearance: none;
+          -webkit-box-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          justify-content: center;
+          user-select: none;
+          position: relative;
+          white-space: nowrap;
+          vertical-align: middle;
+          outline: transparent solid 2px;
+          outline-offset: 2px;
+          line-height: calc(1.25rem);
+          font-weight: 600;
+          height: calc(1.875rem);
+          min-width: calc(1rem * 2);
+          font-size: calc(0.75rem);
+          padding-inline-start: calc(1rem * 2);
+          padding-inline-end: calc(1rem * 2);
+          width: calc(1rem * 5);
+          background: var(--bricks-color-gradient-red-blue);
+          color: rgb(255, 255, 255);
+          transition: none 0s ease 0s;
+          border-radius: calc(1rem * 1.5);
+          border: none;
+        }
+      }
+    }
+  }

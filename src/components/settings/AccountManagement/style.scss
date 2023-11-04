@@ -1,0 +1,46 @@
+.account-management {
+  padding: var(--leonardo-ai-space-5) 0px;
+
+  .chakra-heading {
+    color: rgb(255, 255, 255);
+    font-size: calc(1.125rem);
+    line-height: 1.2;
+    font-weight: var(--leonardo-ai-fontWeights-bold);
+    margin-bottom: var(--leonardo-ai-space-4);
+  }
+
+  .chakra-text {
+    font-weight: 500;
+    max-width: var(--leonardo-ai-sizes-sm);
+    margin-bottom: var(--leonardo-ai-space-4);
+    color: white;
+    transition: background-color 0.3s ease-out;
+  }
+
+  .chakra-button {
+    margin-top: 25px;
+    height: calc(3.125rem);
+    min-width: var(--leonardo-ai-sizes-12);
+    font-size: calc(1rem);
+    padding: 10px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    gap: 3px;
+    color: white;
+    background-color: rgb(228, 74, 53);;
+    font-weight: 500;
+
+    .chakra-icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .chakra-button:hover {
+    transition: background-color 0.3s ease-out;
+    background-color: #171923;
+  }
+}
