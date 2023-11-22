@@ -12,7 +12,6 @@ import { confirmTransaction } from '../../store/transactionSlice';
 
 import { toast } from 'react-toastify';
 
-
 const AdminTransaction = () => {
   const dispatch = useDispatch();
 
@@ -72,20 +71,6 @@ const AdminTransaction = () => {
     })
   }
 
-  useEffect(() => {
-    dispatch(getAllTransaction())
-      .unwrap()
-      .then((result) => {
-        if (result?.status === 200) {
-          const reversedData = [];
-          for (let i = result?.data?.length - 1; i >= 0; i--) {
-            reversedData.push(result?.data[i]);
-          }
-          setDataTransaction(reversedData);
-        }
-      });
-
-  }, []);
 
 
   //Pagination
@@ -218,6 +203,20 @@ const AdminTransaction = () => {
     );
   };
 
+  useEffect(() => {
+    dispatch(getAllTransaction(currentPage))
+      .unwrap()
+      .then((result) => {
+        if (result?.status === 200) {
+          const reversedData = [];
+          for (let i = result?.data?.length - 1; i >= 0; i--) {
+            reversedData.push(result?.data[i]);
+          }
+          setDataTransaction(reversedData);
+        }
+      });
+  }, []);
+
   return (
     <div className="admin-transaction d-flex flex-column justify-content-between" style={{ height: '100%' }}>
       {loading ? (
@@ -260,7 +259,7 @@ const AdminTransaction = () => {
               </table>
             </div>
           </div>
-
+          
           <Pagination
             currentPage={currentPage}
             renderPageNumbers={renderPageNumbers}

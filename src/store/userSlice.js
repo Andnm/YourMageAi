@@ -102,6 +102,28 @@ export const deleteUser = createAsyncThunk("user/deleteUser", async (email) => {
   }
 });
 
+export const getAllUserByAdmin = createAsyncThunk("user/getAllUserByAdmin", async (pageIndex) => {
+  const axiosInstance = axios.create({
+    baseURL: LINK_API,
+    headers: {
+      Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+    },
+  });
+  const response = await axiosInstance.get(`${LINK_API}/users?page=${pageIndex}`);
+  return response;
+});
+
+export const getTotalUsers = createAsyncThunk("user/getTotalUsers", async () => {
+  const axiosInstance = axios.create({
+    baseURL: LINK_API,
+    headers: {
+      Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+    },
+  });
+  const response = await axiosInstance.get(`${LINK_API}/users/totalUsers`);
+  return response;
+});
+
 export const addHistoryImageGenerated = createAsyncThunk(
   "user/addHistoryImageGenerated",
   async (infoGenerated) => {
@@ -305,6 +327,36 @@ const userSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(getUser.rejected, (state, action) => {
+        state.loading = false;
+        state.user = null;
+        state.error = action.error.message;
+      })
+      //get all user by admin
+      .addCase(getAllUserByAdmin.pending, (state) => {
+        state.loading = true;
+        state.user = null;
+        state.error = null;
+      })
+      .addCase(getAllUserByAdmin.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+      })
+      .addCase(getAllUserByAdmin.rejected, (state, action) => {
+        state.loading = false;
+        state.user = null;
+        state.error = action.error.message;
+      })
+      //get total users
+      .addCase(getTotalUsers.pending, (state) => {
+        state.loading = true;
+        state.user = null;
+        state.error = null;
+      })
+      .addCase(getTotalUsers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+      })
+      .addCase(getTotalUsers.rejected, (state, action) => {
         state.loading = false;
         state.user = null;
         state.error = action.error.message;

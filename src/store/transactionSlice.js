@@ -28,8 +28,8 @@ axiosInstance.interceptors.request.use(
 
 export const getAllTransaction = createAsyncThunk(
   "transaction/getAllTransaction",
-  async () => {
-    const response = await axiosInstance.get(`${LINK_API}/transactions`);
+  async (pageIndex) => {
+    const response = await axiosInstance.get(`${LINK_API}/transactions?page=${pageIndex}`);
     return response;
   }
 );

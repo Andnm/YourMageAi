@@ -7,7 +7,7 @@ import io from 'socket.io-client';
 import { useDispatch } from 'react-redux';
 import { createMessage } from '../../../store/messageSlice';
 import { getUserFromLocalStorage } from '../../../store/userSlice';
-// import { sendMsgToOpenAI } from '../../../utils/openai';
+import { sendMsgToOpenAI } from '../../../utils/openai';
 
 const socket = io(`${process.env.REACT_APP_API_URL}`);
 
@@ -24,15 +24,15 @@ const Input = () => {
       return;
     }
 
-//     const res = await sendMsgToOpenAI(valueText);
-// console.log(res)
+    // const res = await sendMsgToOpenAI(valueText);
+    // console.log(res)
 
-    // const senderInfo = {
-    //   authorEmail: user?.email,
-    //   username: user?.userName,
-    //   senders: "user",
-    //   messageContent: valueText
-    // }
+    const senderInfo = {
+      authorEmail: user?.email,
+      username: user?.userName,
+      senders: "user",
+      messageContent: valueText
+    }
 
     // dispatch(createMessage(senderInfo))
 

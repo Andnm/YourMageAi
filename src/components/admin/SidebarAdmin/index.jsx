@@ -7,6 +7,7 @@ import { getUserFromLocalStorage, logoutUser } from '../../../store/userSlice';
 import { LuLayoutDashboard } from 'react-icons/lu'
 import { CiMoneyCheck1 } from 'react-icons/ci'
 import { BiLogOut } from 'react-icons/bi'
+import { IoPersonOutline } from 'react-icons/io5'
 
 const SidebarAdmin = () => {
 
@@ -25,6 +26,11 @@ const SidebarAdmin = () => {
       path: "/admin-dashboard",
       name: "Dashboard",
       icon: <LuLayoutDashboard />
+    },
+    {
+      path: "/admin-manage-user",
+      name: "User Management",
+      icon: <IoPersonOutline />
     },
     {
       path: "/admin-transaction",

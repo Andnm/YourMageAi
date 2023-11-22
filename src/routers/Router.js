@@ -16,6 +16,7 @@ import PersonalFeed from '../pages/PersonalFeed'
 import AdminLayout from "../layouts/AdminLayout";
 import AdminDashboard from "../pages/AdminDashboard";
 import AdminTransaction from "../pages/AdminTransaction";
+import AdminManageUser from "../pages/AdminManageUser";
 
 const Router = () => {
   return (
@@ -36,6 +37,7 @@ const Router = () => {
 
       <Route element={<AdminLayout />}>
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/admin-manage-user" element={<AdminManageUser />} />
         <Route path="/admin-transaction" element={<AdminTransaction />} />
       </Route>
 
