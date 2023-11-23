@@ -84,7 +84,7 @@ const AdminManageUser = () => {
                                     <tr className="table-primary">
                                         <th scope="col">No</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Phone</th>
+                                        <th scope="col">Phone Number</th>
                                         <th scope="col">Age</th>
                                         <th scope="col">Level</th>
                                         <th scope="col">Status</th>
