@@ -3,7 +3,7 @@ import './style.scss'
 import AdminLoading from '../../components/shared/AdminLoading'
 import SpinnerLoading from '../../components/shared/SpinnerLoading'
 
-import { getAllTransaction } from '../../store/transactionSlice';
+import { getAllTransaction, getTotalTransactions } from '../../store/transactionSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { GiConfirmed } from 'react-icons/gi'
 import { BiDetail } from 'react-icons/bi'
@@ -11,13 +11,26 @@ import { MdOutlineCancel } from 'react-icons/md'
 import { confirmTransaction } from '../../store/transactionSlice';
 
 import { toast } from 'react-toastify';
+import Pagination from '../../components/shared/Pagination';
 
 const AdminTransaction = () => {
   const dispatch = useDispatch();
 
-  const { loading, loadingRow, error, user } = useSelector((state) => state.transaction);
+  const { loadingRow, error, user } = useSelector((state) => state.transaction);
 
   const [dataTransaction, setDataTransaction] = useState('');
+  const [loadingData, setLoadingData] = useState(true)
+  const [totalTransaction, setTotalTransaction] = useState(0)
+
+  useEffect(() => {
+    dispatch(getTotalTransactions())
+      .unwrap()
+      .then((result) => {
+        if (result?.status === 200) {
+          setTotalTransaction(result?.data)
+        }
+      })
+  }, []);
 
   const formatDateTime = (dateTime) => {
     if (!dateTime) {
@@ -71,58 +84,10 @@ const AdminTransaction = () => {
     })
   }
 
-
-
   //Pagination
-
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentData = dataTransaction.slice(indexOfFirstItem, indexOfLastItem);
-
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(dataTransaction.length / itemsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-
-  const renderPageNumbers = pageNumbers.map((number, index) => (
-    <li key={index} className={currentPage === number ? 'page-item active' : 'page-item'}>
-      <a className="page-link" onClick={() => setCurrentPage(number)}>{number}</a>
-    </li>
-  ));
-
-  const nextPage = () => {
-    if (currentPage < pageNumbers.length) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const Pagination = ({ currentPage, renderPageNumbers, prevPage, nextPage }) => {
-    return (
-      <nav>
-        <ul className="pagination justify-content-center">
-          <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-            <a className="page-link" onClick={prevPage}>
-              Previous
-            </a>
-          </li>
-          {renderPageNumbers}
-          <li className={`page-item ${currentPage === renderPageNumbers.length ? 'disabled' : ''}`}>
-            <a className="page-link" onClick={nextPage}>
-              Next
-            </a>
-          </li>
-        </ul>
-      </nav>
-    );
+  const onPageChange = (newPage) => {
+    setCurrentPage(newPage);
   };
 
   //row
@@ -208,18 +173,15 @@ const AdminTransaction = () => {
       .unwrap()
       .then((result) => {
         if (result?.status === 200) {
-          const reversedData = [];
-          for (let i = result?.data?.length - 1; i >= 0; i--) {
-            reversedData.push(result?.data[i]);
-          }
-          setDataTransaction(reversedData);
+          setDataTransaction(result?.data);
+          setLoadingData(false)
         }
       });
   }, []);
 
   return (
     <div className="admin-transaction d-flex flex-column justify-content-between" style={{ height: '100%' }}>
-      {loading ? (
+      {loadingData ? (
         <AdminLoading />
       ) : (
         <div className='d-flex justify-content-between flex-column' style={{ height: '100%' }}>
@@ -242,8 +204,8 @@ const AdminTransaction = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {currentData &&
-                    currentData.map((transaction, index) => (
+                  {dataTransaction &&
+                    dataTransaction.map((transaction, index) => (
                       <TransactionRow
                         key={index}
                         transaction={transaction}
@@ -259,12 +221,11 @@ const AdminTransaction = () => {
               </table>
             </div>
           </div>
-          
+
           <Pagination
             currentPage={currentPage}
-            renderPageNumbers={renderPageNumbers}
-            prevPage={prevPage}
-            nextPage={nextPage}
+            totalItems={totalTransaction}
+            onPageChange={onPageChange}
           />
         </div>
       )}

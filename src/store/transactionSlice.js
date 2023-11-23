@@ -34,6 +34,14 @@ export const getAllTransaction = createAsyncThunk(
   }
 );
 
+export const getTotalTransactions = createAsyncThunk(
+  "transaction/getTotalTransactions",
+  async () => {
+    const response = await axiosInstance.get(`${LINK_API}/transactions/totalTransactions`);
+    return response;
+  }
+);
+
 export const createTransaction = createAsyncThunk(
   "transaction/createTransaction",
   async (transactionInfo) => {
@@ -76,6 +84,21 @@ const transactionSlice = createSlice({
         state.transaction = action.payload;
       })
       .addCase(getAllTransaction.rejected, (state, action) => {
+        state.loading = false;
+        state.transaction = action.payload;
+        state.error = action.error.message;
+      })
+
+      //get total transaction
+      .addCase(getTotalTransactions.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getTotalTransactions.fulfilled, (state, action) => {
+        state.loading = false;
+        state.transaction = action.payload;
+      })
+      .addCase(getTotalTransactions.rejected, (state, action) => {
         state.loading = false;
         state.transaction = action.payload;
         state.error = action.error.message;

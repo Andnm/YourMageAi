@@ -2,6 +2,7 @@ import React from 'react';
 import './style.scss';
 
 const Pagination = ({ currentPage, totalItems, onPageChange }) => {
+    console.log(totalItems)
     const itemsPerPage = 10;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const maxVisiblePages = 5; 

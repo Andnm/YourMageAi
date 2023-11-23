@@ -20,7 +20,6 @@ const AdminManageUser = () => {
             .then((result) => {
                 if (result?.status === 200) {
                     setTotalUser(result?.data)
-                    setLoadingData(false)
                 }
             })
     }, []);
@@ -38,16 +37,17 @@ const AdminManageUser = () => {
             !loading ? (
                 <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{user.email}</td>
-                    <td>{user.isOlder18 ? 'Older 18' : 'Younger 18'}</td>
-                    <td>{user.level}</td>
+                    <td>{user?.email}</td>
+                    <td>{user?.phoneNumber}</td>
+                    <td>{user?.isOlder18 ? 'Older 18' : 'Younger 18'}</td>
+                    <td>{user?.level}</td>
                     <td className={`fw-bold text-success`}>
                         Active
                     </td>
                 </tr>
             ) : (
                 <tr>
-                    <td colSpan={5}>
+                    <td colSpan={6}>
                         <div className="skeleton skeleton-text"></div>
                     </td>
                 </tr>
@@ -63,6 +63,7 @@ const AdminManageUser = () => {
                 if (result?.status === 200) {
                     setDataUser(result?.data);
                     setLoadingRow(false)
+                    setLoadingData(false)
                 }
             });
     }, [currentPage]);
@@ -83,6 +84,7 @@ const AdminManageUser = () => {
                                     <tr className="table-primary">
                                         <th scope="col">No</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
                                         <th scope="col">Age</th>
                                         <th scope="col">Level</th>
                                         <th scope="col">Status</th>
