@@ -42,17 +42,18 @@ const AiGenerations = () => {
 
     //CALL API ĐỂ GENERATE IMAGE
     const requestData = JSON.stringify({
-      "key": "Jc1F3VsOCTtw6SF5pMdBG7BgZar4NTpusNQpyyYhdLMFRGILqmemUQaedASg",
+      "key": "eNiRpB7bUEZSm2gcM4MyEXoba04DlFTP2n3gkCCUdSBTVcC17WIMaj0IUT2V",
       "prompt": prompt,
       "negative_prompt": null,
       "width": "512",
       "height": "512",
       "samples": "4",
       "num_inference_steps": "20",
+      "safety_checker": "no",
+      "enhance_prompt": "yes",
       "seed": null,
       "guidance_scale": 7.5,
-      "safety_checker": "yes",
-      "multi_lingual": "no",
+      "multi_lingual": "yes",
       "panorama": "no",
       "self_attention": "no",
       "upscale": "no",
