@@ -1,14 +1,12 @@
-.pagination  {
-    li {
-      &:not(:first-child):not(:last-child) {
-        width: 43px;
-        text-align: center;
-      }
-      
-      cursor: pointer;
+.pagination {
+  margin-bottom: 0px !important;
+
+  li {
+    &:not(:first-child):not(:last-child) {
+      width: 43px;
+      text-align: center;
     }
-    
-    ul {
-      margin-bottom: 0px;
-    }
+
+    cursor: pointer;
   }
+}

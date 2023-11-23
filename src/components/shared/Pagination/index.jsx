@@ -5,7 +5,10 @@ const Pagination = ({ currentPage, totalItems, onPageChange }) => {
     console.log(totalItems)
     const itemsPerPage = 10;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
-    const maxVisiblePages = 5; 
+    const maxVisiblePages = 5;
+    const startItem = (currentPage - 1) * itemsPerPage + 1;
+    const endItem =
+        currentPage === totalPages ? (totalItems > 100 ? (totalItems - 1) : totalItems) : currentPage * itemsPerPage
 
     const getPageRange = () => {
         const pageRange = [];
@@ -54,8 +57,9 @@ const Pagination = ({ currentPage, totalItems, onPageChange }) => {
     };
 
     return (
-        <nav>
-            <ul className="pagination justify-content-center">
+        <nav className='d-flex justify-content-center align-items-center gap-3'>
+            <p className='d-flex align-items-center text-center'> {startItem} - {endItem} of {totalItems > 100 ? totalItems - 1 : totalItems}</p>
+            <ul className="pagination">
                 <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
                     <a className="page-link" onClick={prevPage}>
                         Previous
