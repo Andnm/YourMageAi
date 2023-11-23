@@ -1,0 +1,10 @@
+.search-sort {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.search-sort .search-input {
+    border-radius: 3px;
+    border: 1px solid #999;
+}

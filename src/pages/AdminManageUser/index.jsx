@@ -14,15 +14,17 @@ const AdminManageUser = () => {
     const [loadingData, setLoadingData] = useState(true)
     const [loadingRow, setLoadingRow] = useState(false);
 
+    const [selectedLevel, setSelectedLevel] = useState("All");
+
     useEffect(() => {
-        dispatch(getTotalUsers())
+        dispatch(getTotalUsers(selectedLevel))
             .unwrap()
             .then((result) => {
                 if (result?.status === 200) {
                     setTotalUser(result?.data)
                 }
             })
-    }, []);
+    }, [selectedLevel]);
 
     //Pagination
 
@@ -57,16 +59,26 @@ const AdminManageUser = () => {
 
     useEffect(() => {
         setLoadingRow(true)
-        dispatch(getAllUserByAdmin(currentPage))
+        dispatch(getAllUserByAdmin({ pageIndex: currentPage, level: selectedLevel }))
             .unwrap()
             .then((result) => {
+                console.log(result)
                 if (result?.status === 200) {
                     setDataUser(result?.data);
                     setLoadingRow(false)
                     setLoadingData(false)
                 }
             });
-    }, [currentPage]);
+    }, [currentPage, selectedLevel]);
+
+    const handleLevelChange = (selectedValue) => {
+        setCurrentPage(1)
+        setSelectedLevel(selectedValue);
+    };
+
+    const clearFilter = () => {
+        setSelectedLevel('All');
+    };
 
     return (
         loadingData
@@ -75,9 +87,37 @@ const AdminManageUser = () => {
             <div className="admin-transaction d-flex flex-column justify-content-between" style={{ height: '100%' }}>
                 <div className='d-flex justify-content-between flex-column' style={{ height: '100%' }}>
                     <div>
-                        <div className="search-container">
-                            <input placeholder="Search.." id="input" className="input" name="text" type="text" />
+                        <div className='d-flex align-items-center justify-content-between'>
+                            <div className="search-container">
+                                <input placeholder="Search.." id="input" className="input" name="text" type="text" />
+                            </div>
+
+                            <div>
+                                <div className="filter-container d-flex justify-content-between align-items-center">
+                                    <label className="me-2" htmlFor="levelFilter">Filter by Level:</label>
+                                    <select
+                                        id="levelFilter"
+                                        name="levelFilter"
+                                        value={selectedLevel}
+                                        onChange={(e) => handleLevelChange(e.target.value)}
+                                        className="form-select me-2"
+                                    >
+                                        <option value="All">All</option>
+                                        <option value="Free">Free</option>
+                                        <option value="Apprentice">Apprentice</option>
+                                        <option value="Artisan">Artisan</option>
+                                        <option value="Maestro">Maestro</option>
+                                    </select>
+                                    <button
+                                        onClick={clearFilter}
+                                        className="btn btn-danger"
+                                    >
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+
                         <div className="mt-3">
                             <table className="table border table-striped">
                                 <thead>
@@ -91,14 +131,25 @@ const AdminManageUser = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {dataUser &&
+                                    {dataUser && dataUser.length > 0 ? (
                                         dataUser.map((user, index) => (
                                             <UserRow
                                                 user={user}
                                                 index={index}
                                                 loading={loadingRow}
                                             />
-                                        ))}
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan={6} className="text-center">
+                                                {loadingData ? (
+                                                    <div className="skeleton skeleton-text"></div>
+                                                ) : (
+                                                    <p>No data matching</p>
+                                                )}
+                                            </td>
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
                         </div>

@@ -102,25 +102,28 @@ export const deleteUser = createAsyncThunk("user/deleteUser", async (email) => {
   }
 });
 
-export const getAllUserByAdmin = createAsyncThunk("user/getAllUserByAdmin", async (pageIndex) => {
+export const getAllUserByAdmin = createAsyncThunk("user/getAllUserByAdmin", async ({pageIndex, level}) => {
+  console.log(pageIndex)
+  console.log(level)
+  
   const axiosInstance = axios.create({
     baseURL: LINK_API,
     headers: {
       Authorization: `Bearer ${getTokenFromLocalStorage()}`,
     },
   });
-  const response = await axiosInstance.get(`${LINK_API}/users?page=${pageIndex}`);
+  const response = await axiosInstance.get(`${LINK_API}/users?page=${pageIndex}&level=${level}`);
   return response;
 });
 
-export const getTotalUsers = createAsyncThunk("user/getTotalUsers", async () => {
+export const getTotalUsers = createAsyncThunk("user/getTotalUsers", async (level) => {
   const axiosInstance = axios.create({
     baseURL: LINK_API,
     headers: {
       Authorization: `Bearer ${getTokenFromLocalStorage()}`,
     },
   });
-  const response = await axiosInstance.get(`${LINK_API}/users/totalUsers`);
+  const response = await axiosInstance.get(`${LINK_API}/users/totalUsers?level=${level}`);
   return response;
 });
 
