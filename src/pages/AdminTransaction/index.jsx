@@ -18,9 +18,10 @@ const AdminTransaction = () => {
 
   const { loadingRow, error, user } = useSelector((state) => state.transaction);
 
-  const [dataTransaction, setDataTransaction] = useState('');
+  const [dataTransaction, setDataTransaction] = useState('')
   const [loadingData, setLoadingData] = useState(true)
   const [totalTransaction, setTotalTransaction] = useState(0)
+  const [loadingDataRow, setLoadingDataRow] = useState(false)
 
   useEffect(() => {
     dispatch(getTotalTransactions())
@@ -99,85 +100,96 @@ const AdminTransaction = () => {
     handleConfirmTransactionApi,
     formatCurrency,
     formatDateTime,
+    loading
   }) => {
     return (
-      <tr key={index}>
-        {openAskForConfirmRow === index ? (
-          <td colSpan="8">
-            <div className="text-center d-flex justify-content-center align-items-center gap-5">
-              {loadingRow ? (
-                <SpinnerLoading />
-              ) : (
-                <>
-                  <div className="d-flex justify-content-center align-items-center gap-2">
-                    <div className="text-danger" style={{ cursor: 'pointer' }}
-                      onClick={() => handleAskForConfirm(false)}
-                    >
-                      <MdOutlineCancel />
+      !loading ? (
+        <tr key={index}>
+          {openAskForConfirmRow === index ? (
+            <td colSpan="8">
+              <div className="text-center d-flex justify-content-center align-items-center gap-5">
+                {loadingRow ? (
+                  <SpinnerLoading />
+                ) : (
+                  <>
+                    <div className="d-flex justify-content-center align-items-center gap-2">
+                      <div className="text-danger" style={{ cursor: 'pointer' }}
+                        onClick={() => handleAskForConfirm(false)}
+                      >
+                        <MdOutlineCancel />
+                      </div>
+                      <div
+                        className="text-success"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleConfirmTransactionApi(transaction)}
+                      >
+                        <GiConfirmed />
+                      </div>
+                    </div>
+                    Are you sure you want to confirm this transaction?
+                  </>
+                )}
+              </div>
+            </td>
+          ) : (
+            <>
+              <td className="d-flex flex-row gap-2 action-label">
+                {transaction.paymentStatus === 'Pending' ? (
+                  <>
+                    <div style={{ cursor: 'pointer' }} data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
+                      <BiDetail />
                     </div>
                     <div
-                      className="text-success"
                       style={{ cursor: 'pointer' }}
-                      onClick={() => handleConfirmTransactionApi(transaction)}
+                      className="text-success"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="Confirm"
+                      onClick={() => handleAskForConfirm(index)}
                     >
                       <GiConfirmed />
                     </div>
-                  </div>
-                  Are you sure you want to confirm this transaction?
-                </>
-              )}
-            </div>
-          </td>
-        ) : (
-          <>
-            <td className="d-flex flex-row gap-2 action-label">
-              {transaction.paymentStatus === 'Pending' ? (
-                <>
+                  </>
+                ) : (
                   <div style={{ cursor: 'pointer' }} data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                     <BiDetail />
                   </div>
-                  <div
-                    style={{ cursor: 'pointer' }}
-                    className="text-success"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Confirm"
-                    onClick={() => handleAskForConfirm(index)}
-                  >
-                    <GiConfirmed />
-                  </div>
-                </>
-              ) : (
-                <div style={{ cursor: 'pointer' }} data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
-                  <BiDetail />
-                </div>
-              )}
-            </td>
-            <td>{transaction.fullName}</td>
-            <td>{transaction.phoneNumber}</td>
-            <td>{transaction.level}</td>
-            <td>{formatCurrency(transaction.amount)}</td>
-            <td>{transaction.constantPayment?.replace(/(^|\s)\S/g, (l) => l.toUpperCase())}</td>
-            <td>{formatDateTime(transaction.createdAt)}</td>
-            <td className={`fw-bold ${transaction.paymentStatus === 'Pending' ? 'text-warning' : 'text-success'}`}>
-              {transaction.paymentStatus}
-            </td>
-          </>
-        )}
-      </tr>
+                )}
+              </td>
+              <td>{transaction.fullName}</td>
+              <td>{transaction.phoneNumber}</td>
+              <td>{transaction.level}</td>
+              <td>{formatCurrency(transaction.amount)}</td>
+              <td>{transaction.constantPayment?.replace(/(^|\s)\S/g, (l) => l.toUpperCase())}</td>
+              <td>{formatDateTime(transaction.createdAt)}</td>
+              <td className={`fw-bold ${transaction.paymentStatus === 'Pending' ? 'text-warning' : 'text-success'}`}>
+                {transaction.paymentStatus}
+              </td>
+            </>
+          )}
+        </tr>
+      ) : (
+        <tr>
+          <td colSpan={8}>
+            <div className="skeleton skeleton-text"></div>
+          </td>
+        </tr>
+      )
     );
   };
 
   useEffect(() => {
+    setLoadingDataRow(true)
     dispatch(getAllTransaction(currentPage))
       .unwrap()
       .then((result) => {
         if (result?.status === 200) {
           setDataTransaction(result?.data);
           setLoadingData(false)
+          setLoadingDataRow(false)
         }
       });
-  }, []);
+  }, [currentPage]);
 
   return (
     <div className="admin-transaction d-flex flex-column justify-content-between" style={{ height: '100%' }}>
@@ -207,7 +219,6 @@ const AdminTransaction = () => {
                   {dataTransaction &&
                     dataTransaction.map((transaction, index) => (
                       <TransactionRow
-                        key={index}
                         transaction={transaction}
                         index={index}
                         openAskForConfirmRow={openAskForConfirmRow}
@@ -215,6 +226,7 @@ const AdminTransaction = () => {
                         handleConfirmTransactionApi={handleConfirmTransactionApi}
                         formatCurrency={formatCurrency}
                         formatDateTime={formatDateTime}
+                        loading={loadingDataRow}
                       />
                     ))}
                 </tbody>
