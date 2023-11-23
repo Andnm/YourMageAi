@@ -36,7 +36,7 @@ const AdminManageUser = () => {
         return (
             !loading ? (
                 <tr key={index}>
-                    <td>{index + 1}</td>
+                    <td>{user?.no}</td>
                     <td>{user?.email}</td>
                     <td>{user?.phoneNumber}</td>
                     <td>{user?.isOlder18 ? 'Older 18' : 'Younger 18'}</td>
